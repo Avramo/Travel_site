@@ -1,0 +1,63 @@
+section{
+    display: flex;
+    margin: 15px;
+    padding: 15px;
+    background: turquoise;
+    border: goldenrod groove 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+div{
+    display: flex;
+    border: mediumblue double 5px ;
+    margin: 25px ;
+    padding: 20px;
+    background: yellow;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+}
+section > div {
+    font-family:  'Helvetica';
+    font-size: 15pt ;
+}
+table{
+    border: slateblue solid 2px;
+    font-family:  'Helvetica';
+    font-size: 13pt;
+}
+th, td{
+    background:orange;
+    padding: 5px;
+    border: solid steelblue;
+    border-collapse: collapse;
+}
+h1{
+    margin: 0px;
+    padding: 0px;
+}
+input{
+    width: 200px;
+    height: 20px;
+    display:inline-block
+}
+.form-order{
+    text-align: left ;
+    justify-content: left;
+    display: inline-block;
+
+}
+label{
+    display: inline-block;
+}
+#submitOrderBtn{
+    width: 150px;
+    height: 110px;
+    background-image:url('https://cdn.dribbble.com/users/839429/screenshots/4519779/plane-travel-icon-rebound2.gif');
+    background-size: cover ;
+    background-repeat: no-repeat;   
+    color: tomato;
+}
+
+

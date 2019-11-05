@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="traveldb.css">
+</head>
+<body>
+    <div class="travel-app">
+        <section>
+            <div id="table-destinations">
+                <table>
+                    <caption> <h1>Destinations</h1></caption>
+                    <thead>
+                        <th>Destination Code</th>
+                        <th>Destination Name</th>
+                        <th>Price</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="form-new-order">
+                <form id="order-form">
+                    <label for="order-form-name">NAME:</label>
+                    <input id="order-form-name" type="text" name="passName">
+                    <br> 
+                    <label for="order-form-passID">Passenger ID:</label>
+                    <input id="order-form-passID" type="text" name="passID">
+                    <br>
+                    <label for="order-form-destCode">Destination Code:</label>
+                    <input id="order-form-destCode" type="text" name="destCode">
+                    <br>
+                    <label for="order-form-numOfPass">Num Of Passengers:</label>
+                    <input id="order-form-numOfPass" type="text" name="numOfPass">
+                    <br>
+                </form>
+                <button id="submitOrderBtn" onclick="sendOrder()"><h1>Submit Order</h1></button>
+
+            </div>
+        </section>
+        <section>
+            <div id="table-customers">
+                <table>
+                    <caption> <h1>Orders</h1></caption>
+                        <thead>
+                            <th>Order Number</th>
+                            <th>Passenger Name</th>
+                            <th>Passenger ID</th>
+                            <th>Destination Code</th>
+                            <th>Destination Name</th>
+                            <th>Num Of Passengers</th>
+                            <th>Total $</th>
+                        </thead>
+                        <tbody></tbody>
+                </table>
+            </div>
+            <div id="search-by-customer">
+                <table>
+                    <caption><h1>Search By Customer</h1></caption>
+                </table>
+            </div>
+            
+        </section>
+
+    </div>
+    <script src="traveldb.js"></script>
+</body>
+</html>
