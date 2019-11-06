@@ -46,6 +46,7 @@
                 <table>
                     <caption> <h1>Orders</h1></caption>
                         <thead>
+                        <tr>
                             <th>Order Number</th>
                             <th>Passenger Name</th>
                             <th>Passenger ID</th>
@@ -53,13 +54,30 @@
                             <th>Destination Name</th>
                             <th>Num Of Passengers</th>
                             <th>Total $</th>
+                        </tr>
                         </thead>
                         <tbody></tbody>
                 </table>
             </div>
             <div id="search-by-customer">
                 <table>
-                    <caption><h1>Search By Customer</h1></caption>
+                    <caption>
+                        <h1>Search By Customer Name</h1>
+                        <input type="text">
+                        <button onclick="searchByName()" class="searchButton" >Search</button>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Passenger Name</th>
+                            <th>Passenger ID</th>
+                            <th>Destination Code</th>
+                            <th>Destination Name</th>
+                            <th>Num Of Passengers</th>
+                            <th>Total $</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
                 </table>
             </div>
             

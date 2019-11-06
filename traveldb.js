@@ -2,6 +2,8 @@ console.log('travel app start')
 let orderNumber = 0;
 let ordersInfo = document.querySelector('#table-customers tbody');
 let destinationsInfo = [];
+let ordersReceived = []; //{ordNumber:ordNum, passName:pName, passID:pasId, destCode:desCode*1, desName:dName, numOfPass:numofpas*1, total:dPrice * numofpas};
+let nameResults = document.querySelector('#search-by-customer tbody');
 try {
     console.log('populate destinations start');
     let destinations = [
@@ -91,7 +93,7 @@ function updateOrders(ordNum, pName, pasId, desCode, numofpas) {
                 }
              })
         let ordersTemplate = '<tr><td>#ORDNUM</td><td>#PASSNAME</td><td>#PASSID</td><td>#DESTCODE</td><td>#DESTNAME</td><td>#NUMOFPASS</td><td>$#TOTAL</td></tr>';
-        let newOrder = ordersTemplate
+        let newOrderStr = ordersTemplate
             .replace('#ORDNUM', ordNum) 
             .replace('#PASSNAME', pName)
             .replace('#PASSID', pasId)
@@ -99,10 +101,52 @@ function updateOrders(ordNum, pName, pasId, desCode, numofpas) {
             .replace('#DESTNAME', dName)
             .replace('#NUMOFPASS', numofpas)
             .replace('#TOTAL', dPrice * numofpas )
-            ordersInfo.innerHTML += newOrder;
+            ordersInfo.innerHTML += newOrderStr;
+            console.log('newOrderStr',newOrderStr)
+
+            //push this order to ordersReceived arr here as obj
+            let newOrderObj = {ordNumber:ordNum, passName:pName, passID:pasId, destCode:desCode*1, desName:dName, numOfPass:numofpas*1, total:dPrice * numofpas};
+            ordersReceived.push(newOrderObj);
+            console.log('newOrderObj', newOrderObj);
+            console.log('all orders received', ordersReceived)
 
     } catch (error) {
         console.error('func updateOrders error')
     }
     console.log('func updateOrders finish')    
+}
+
+function searchByName() {
+    try {
+        console.log('func searchByName start')
+        let custName = document.querySelector('#search-by-customer input').value;
+        let nameSearchResultsArr = [];
+        let nameResultsTemp = '';
+        
+        ordersReceived.forEach(order =>{
+            if (order.passName == custName){
+                nameSearchResultsArr.push(order)
+            }
+        });
+
+        let nameResultsTemplate = '<tr><td>#ORDNUM</td><td>#PASSNAME</td><td>#PASSID</td><td>#DESTCODE</td><td>#DESTNAME</td><td>#NUMOFPASS</td><td>$#TOTAL</td></tr>';
+        nameSearchResultsArr.forEach(name =>{
+            nameResultsTemp += nameResultsTemplate
+            .replace('#ORDNUM', name.ordNumber) 
+            .replace('#PASSNAME', name.passName)
+            .replace('#PASSID', name.passID)
+            .replace('#DESTCODE', name.destCode)
+            .replace('#DESTNAME', name.desName)
+            .replace('#NUMOFPASS', name.numOfPass)
+            .replace('#TOTAL', name.total)
+            console.log('nameResultsTemp in foreach',nameResultsTemp)
+        });
+        nameResults.innerHTML = nameResultsTemp;
+        console.log('nameResults',nameResults)
+        
+        document.querySelector('#search-by-customer input').value = '';
+    } catch (error) {
+        console.error('func searchByName error')
+    }
+    console.log('func searchByName finish')                  
 }
