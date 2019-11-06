@@ -4,6 +4,7 @@ let ordersInfo = document.querySelector('#table-customers tbody');
 let destinationsInfo = [];
 let ordersReceived = []; //{ordNumber:ordNum, passName:pName, passID:pasId, destCode:desCode*1, desName:dName, numOfPass:numofpas*1, total:dPrice * numofpas};
 let nameResults = document.querySelector('#search-by-customer tbody');
+
 try {
     console.log('populate destinations start');
     let destinations = [
@@ -149,4 +150,42 @@ function searchByName() {
         console.error('func searchByName error')
     }
     console.log('func searchByName finish')                  
+}
+////////////not done
+function searchByDestination() {
+    try {
+        console.log('func searchByDestination start')
+        let selectedDestination = document.querySelector('#search-by-destination select').value;
+        if (selectedDestination == '') {
+            console.log('func searchByDestination clicked 1st line, return')
+            return
+        }
+        let destSearchResultsArr = [];
+        let destResultsTemp = '';
+        
+        ordersReceived.forEach(order =>{
+            if (order.desName == selectedDestination){
+                destSearchResultsArr.push(order)
+            }
+        });
+
+        let destResultsTemplate = '<tr><td>#ORDNUM</td><td>#PASSNAME</td><td>#PASSID</td><td>#DESTCODE</td><td>#DESTNAME</td><td>#NUMOFPASS</td><td>$#TOTAL</td></tr>';
+        destSearchResultsArr.forEach(name =>{
+            destResultsTemp += destResultsTemplate
+            .replace('#ORDNUM', name.ordNumber) 
+            .replace('#PASSNAME', name.passName)
+            .replace('#PASSID', name.passID)
+            .replace('#DESTCODE', name.destCode)
+            .replace('#DESTNAME', name.desName)
+            .replace('#NUMOFPASS', name.numOfPass)
+            .replace('#TOTAL', name.total)
+            console.log('destResultsTemp in foreach',destResultsTemp)
+        });
+        console.log('destResultsTemp complete',destResultsTemp)
+        
+        document.querySelector('#search-by-destination tbody').innerHTML = destResultsTemp;    
+    } catch (error) {
+        console.error('func searchByDestination error', error)
+    }
+    console.log('func searchByDestination finish')
 }

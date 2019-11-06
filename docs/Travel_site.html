@@ -22,8 +22,11 @@
                     <tbody></tbody>
                 </table>
             </div>
+        </section>
+        <section>
             <div id="form-new-order">
                 <form id="order-form">
+                    <caption><h1>Order Form</h1></caption>
                     <label for="order-form-name">NAME:</label>
                     <input id="order-form-name" type="text" name="passName">
                     <br> 
@@ -38,7 +41,6 @@
                     <br>
                 </form>
                 <button id="submitOrderBtn" onclick="sendOrder()"><h1>Submit Order</h1></button>
-
             </div>
         </section>
         <section>
@@ -59,6 +61,8 @@
                         <tbody></tbody>
                 </table>
             </div>
+        </section>
+        <section>
             <div id="search-by-customer">
                 <table>
                     <caption>
@@ -79,10 +83,40 @@
                     </thead>
                     <tbody></tbody>
                 </table>
-            </div>
-            
+            </div> 
         </section>
-
+        <section>
+            <div id="search-by-destination">
+                <table>
+                  <caption>
+                        <h1>Search By Destination</h1>
+                        <select name="searchByDest" id="search-by-destination" onclick="searchByDestination()">
+                            <option selected value='' >--Please choose a destination</option>
+                            <option>Melbourne</option>
+                            <option>Israel</option>
+                            <option>New York</option>
+                            <option>London</option>
+                            <option>Kiev</option>
+                            <option>Karlin</option>
+                            <option>San Francisco</option>
+                            <option>Moscow</option>
+                      </select>
+                  </caption>
+                  <thead>
+                      <tr>
+                          <th>Order Number</th>
+                          <th>Passenger Name</th>
+                          <th>Passenger ID</th>
+                          <th>Destination Code</th>
+                          <th>Destination Name</th>
+                          <th>Num Of Passengers</th>
+                          <th>Total $</th>
+                      </tr>
+                  </thead>
+                  <tbody></tbody>
+              </table>
+            </div>
+        </section>
     </div>
     <script src="traveldb.js"></script>
 </body>
